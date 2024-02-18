@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         textTheme: TextTheme(
             bodySmall: TextStyle(
               color: Color(0xFFD1D1D1),
-              fontSize: 12,
+              fontSize: 14,
               fontFamily: 'Cairo',
               fontWeight: FontWeight.w400,
               height: 0,

@@ -3,6 +3,7 @@ import 'package:mtriple/ui/components/issue_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   static const String routeName = "home";
+  TextEditingController controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -16,54 +17,33 @@ class HomeScreen extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-              Center(
-                child: Container(
-                  width: double.infinity,
-                  height: 44,
-                  padding: const EdgeInsets.all(12),
-                  decoration: ShapeDecoration(
-                    color: Color(0xFF3A453A),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16),
-                    ),
+              TextField(
+                controller: controller,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 20,
+                ),
+                decoration: InputDecoration(
+                  fillColor: Color(0xff3B453B),
+                  filled: true,
+                  hintText: "Find the solution to your problem",
+                  hintStyle: TextStyle(
+                    color: Color(0xFFC6C6C6),
+                    fontSize: 18,
+                    fontFamily: 'Cairo',
+                    fontWeight: FontWeight.w400,
+                    height: 0,
                   ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: 24,
-                        height: 24,
-                        clipBehavior: Clip.antiAlias,
-                        decoration: BoxDecoration(),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            ImageIcon(
-                              AssetImage("assets/images/search.png"),
-                              color: Colors.white,
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(width: 8),
-                      SizedBox(
-                        width: 221,
-                        child: Text(
-                          'Find the solution to your problem',
-                          style: TextStyle(
-                            color: Color(0xFFC6C6C6),
-                            fontSize: 14,
-                            fontFamily: 'Cairo',
-                            fontWeight: FontWeight.w400,
-                            height: 0,
-                          ),
-                        ),
-                      ),
-                    ],
+                  focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(16),
+                      borderSide: BorderSide(color: Colors.white)),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  prefixIcon: Icon(
+                    Icons.search,
+                    color: Colors.white,
+                    size: 40,
                   ),
                 ),
               ),
