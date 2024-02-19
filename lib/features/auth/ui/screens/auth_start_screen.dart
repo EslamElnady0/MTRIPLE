@@ -17,11 +17,17 @@ class AuthStartScreen extends StatelessWidget {
         child: Column(
           children: [
             const AuthScreenHead(),
+            const Hero(
+              tag: "divider-tag",
+              child: Divider(
+                color: Colors.white,
+              ),
+            ),
             SizedBox(
               height: 48.h,
             ),
             Hero(
-              tag: "login tag",
+              tag: "login-tag",
               child: Material(
                 type: MaterialType.transparency,
                 child: CustomAuthButton(
@@ -34,7 +40,7 @@ class AuthStartScreen extends StatelessWidget {
               height: 32.h,
             ),
             Hero(
-              tag: "signup tag",
+              tag: "signup-tag",
               child: Material(
                 type: MaterialType.transparency,
                 child: CustomAuthButton(

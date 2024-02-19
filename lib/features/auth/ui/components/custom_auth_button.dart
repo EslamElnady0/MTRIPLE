@@ -9,6 +9,8 @@ class CustomAuthButton extends StatelessWidget {
   final Widget? child;
   final Color? color;
   final TextStyle? style;
+  final double? raduis;
+  final Border? border;
   const CustomAuthButton({
     super.key,
     this.onTap,
@@ -16,6 +18,8 @@ class CustomAuthButton extends StatelessWidget {
     this.child,
     this.color,
     this.style,
+    this.raduis,
+    this.border,
   });
 
   @override
@@ -27,7 +31,8 @@ class CustomAuthButton extends StatelessWidget {
         height: 55.h,
         decoration: BoxDecoration(
             color: color ?? Colorrs.green,
-            borderRadius: BorderRadius.circular(8.r)),
+            border: border,
+            borderRadius: BorderRadius.circular(raduis ?? 8.r)),
         child: child ??
             Center(
               child: Text(

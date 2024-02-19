@@ -17,7 +17,15 @@ class LogInScreen extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 17.w),
         child: Column(
           children: [
-            const AuthScreenHead(),
+            AuthScreenHead(
+              gap: 48.h,
+            ),
+            const Hero(
+              tag: "divider-tag",
+              child: Divider(
+                color: Colors.white,
+              ),
+            ),
             SizedBox(
               height: 30.h,
             ),
@@ -48,15 +56,12 @@ class LogInScreen extends StatelessWidget {
               height: 34.h,
             ),
             const Hero(
-              tag: "login tag",
+              tag: "login-tag",
               child: Material(
                   type: MaterialType.transparency, child: CustomAuthButton()),
             ),
             const Spacer(),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 5.0),
-              child: AuthScreensFooter(),
-            ),
+            const AuthScreensFooter(),
             SizedBox(
               height: 20.h,
             )

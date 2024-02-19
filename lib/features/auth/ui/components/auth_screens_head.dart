@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AuthScreenHead extends StatelessWidget {
+  final double? gap;
   const AuthScreenHead({
     super.key,
+    this.gap,
   });
 
   @override
@@ -13,16 +15,16 @@ class AuthScreenHead extends StatelessWidget {
         SizedBox(
           height: 90.h,
         ),
-        Image.asset(
-          "assets/images/MTRIPLE.png",
-          width: 180.w,
-          height: 127.h,
+        Hero(
+          tag: 'shrink-tag',
+          child: Image.asset(
+            "assets/images/MTRIPLE.png",
+            width: 180.w,
+            height: 127.h,
+          ),
         ),
         SizedBox(
-          height: 56.h,
-        ),
-        const Divider(
-          color: Colors.white,
+          height: gap ?? 56.h,
         ),
       ],
     );

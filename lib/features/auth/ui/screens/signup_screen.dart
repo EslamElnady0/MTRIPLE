@@ -20,7 +20,15 @@ class SignUpScreen extends StatelessWidget {
               SliverToBoxAdapter(
                 child: Column(
                   children: [
-                    const AuthScreenHead(),
+                    AuthScreenHead(
+                      gap: 48.h,
+                    ),
+                    const Hero(
+                      tag: "divider-tag",
+                      child: Divider(
+                        color: Colors.white,
+                      ),
+                    ),
                     SizedBox(
                       height: 27.h,
                     ),
@@ -52,7 +60,7 @@ class SignUpScreen extends StatelessWidget {
                       height: 35.h,
                     ),
                     Hero(
-                      tag: "signup tag",
+                      tag: "signup-tag",
                       child: Material(
                         type: MaterialType.transparency,
                         child: CustomAuthButton(

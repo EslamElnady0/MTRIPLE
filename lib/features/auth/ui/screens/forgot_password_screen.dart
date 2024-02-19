@@ -18,7 +18,9 @@ class ForgotPasswordScreen extends StatelessWidget {
             SizedBox(
               height: 48.36.h,
             ),
-            Image.asset("assets/images/small mtriple.png"),
+            Hero(
+                tag: "shrink-tag",
+                child: Image.asset("assets/images/small mtriple.png")),
             SizedBox(
               height: 34.h,
             ),
@@ -58,7 +60,11 @@ class ForgotPasswordScreen extends StatelessWidget {
             SizedBox(
               height: 16.h,
             ),
-            const CustomAuthButton(),
+            const Hero(
+                tag: "login-tag",
+                child: Material(
+                    type: MaterialType.transparency,
+                    child: CustomAuthButton())),
             const Spacer(),
             Align(
               alignment: Alignment.centerLeft,

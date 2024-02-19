@@ -57,6 +57,9 @@ class NickNameScreen extends StatelessWidget {
               padding: EdgeInsets.only(right: 6.w),
               child: const CustomTextButtton(text: "Skip"),
             ),
+          ),
+          SizedBox(
+            height: 20.h,
           )
         ]),
       ),

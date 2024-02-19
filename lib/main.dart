@@ -2,13 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mtriple/core/routes/routes.dart';
 import 'package:mtriple/core/themes/themes.dart';
-import 'package:mtriple/features/auth/ui/screens/auth_start_screen.dart';
-import 'package:mtriple/features/auth/ui/screens/forgot_password_screen.dart';
-import 'package:mtriple/features/auth/ui/screens/login_screen.dart';
-import 'package:mtriple/features/auth/ui/screens/nickname_screen.dart';
-import 'package:mtriple/features/auth/ui/screens/signup_screen.dart';
 
-void main() {
+import 'package:mtriple/features/splash/ui/screens/splash_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+int? isViewed;
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+
+  isViewed = prefs.getInt('onBoard');
   runApp(const MyApp());
 }
 
@@ -22,15 +25,9 @@ class MyApp extends StatelessWidget {
       builder: (context, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          home: const AuthStartScreen(),
+          home: const SplashScreen(),
           theme: AppTheme.darkTheme,
-          routes: {
-            Routes.authStart: (_) => const AuthStartScreen(),
-            Routes.login: (_) => const LogInScreen(),
-            Routes.signUp: (_) => const SignUpScreen(),
-            Routes.forgotPassword: (_) => const ForgotPasswordScreen(),
-            Routes.nickName: (_) => const NickNameScreen(),
-          },
+          onGenerateRoute: Routes.onGenerateRoutes,
         );
       },
     );

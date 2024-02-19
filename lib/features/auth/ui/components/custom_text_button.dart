@@ -13,11 +13,14 @@ class CustomTextButtton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
-      child: Text(
-        text,
-        style: Styles.style14white,
-      ),
-    );
+        onTap: onTap,
+        child: Stack(
+          children: [
+            Text(
+              text,
+              style: Styles.style14whiteSemiBold,
+            ),
+          ],
+        ));
   }
 }
