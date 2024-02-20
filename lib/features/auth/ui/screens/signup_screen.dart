@@ -155,16 +155,28 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         tag: "signup-tag",
                         child: Material(
                           type: MaterialType.transparency,
-                          child: CustomAuthButton(
-                            text: "Sign up",
-                            onTap: () {
-                              if (formKey.currentState!.validate()) {
-                                context.read<SignupCubit>().signUpUser(
-                                    email: _emailController.text,
-                                    password: _passwordController.text);
+                          child: BlocListener<SignupCubit, SignupState>(
+                            listener: (context, state) {
+                              if (state is SignupFailure) {
+                                var snackBar =
+                                    SnackBar(content: Text(state.errMessage));
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(snackBar);
+                              }
+                              if (state is SignupSuccess) {
                                 Navigator.pushNamed(context, Routes.nickName);
-                              } else {}
+                              }
                             },
+                            child: CustomAuthButton(
+                              text: "Sign up",
+                              onTap: () {
+                                if (formKey.currentState!.validate()) {
+                                  context.read<SignupCubit>().signUpUser(
+                                      email: _emailController.text,
+                                      password: _passwordController.text);
+                                } else {}
+                              },
+                            ),
                           ),
                         ),
                       ),

@@ -106,16 +106,28 @@ class _LogInScreenState extends State<LogInScreen> {
                         tag: "login-tag",
                         child: Material(
                             type: MaterialType.transparency,
-                            child: CustomAuthButton(
-                              onTap: () {
-                                if (formKey.currentState!.validate()) {
-                                  context.read<SigninCubit>().signInUser(
-                                      email: _emailController.text,
-                                      password: _passwordController.text);
+                            child: BlocListener<SigninCubit, SigninState>(
+                              listener: (context, state) {
+                                if (state is SigninSuccess) {
                                   Navigator.pushNamedAndRemoveUntil(
                                       context, Routes.home, (route) => false);
-                                } else {}
+                                }
+                                if (state is SigninFailure) {
+                                  var snackBar =
+                                      SnackBar(content: Text(state.errMessage));
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(snackBar);
+                                }
                               },
+                              child: CustomAuthButton(
+                                onTap: () {
+                                  if (formKey.currentState!.validate()) {
+                                    context.read<SigninCubit>().signInUser(
+                                        email: _emailController.text,
+                                        password: _passwordController.text);
+                                  } else {}
+                                },
+                              ),
                             )),
                       ),
                     ],
