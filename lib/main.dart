@@ -1,10 +1,15 @@
+import 'dart:developer';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mtriple/core/routes/routes.dart';
+import 'package:mtriple/core/services/firebase_firestore_service.dart';
 import 'package:mtriple/core/themes/themes.dart';
 import 'package:mtriple/features/auth/data/cubits/sign%20in/signin_cubit.dart';
 import 'package:mtriple/features/auth/data/cubits/sign%20up/signup_cubit.dart';
+import 'package:mtriple/features/auth/data/models/user_model.dart';
+import 'package:mtriple/features/home/ui/screens/home_screen.dart';
 import 'package:mtriple/features/splash/ui/screens/splash_screen.dart';
 import 'package:mtriple/firebase_options.dart';
 import 'package:shared_preferences/shared_preferences.dart';

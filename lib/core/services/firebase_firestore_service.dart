@@ -9,15 +9,9 @@ class FirebaseFirestoreServices {
 
   addToFirestore({required UserModel user}) async {
     try {
-      final docRef = firestore
-          .collection("users")
-          .withConverter(
-            fromFirestore: UserModel.fromFirestore,
-            toFirestore: (UserModel user, options) => user.toFirestore(user),
-          )
-          .doc(user.userId);
+      final docRef = firestore.collection("users").doc(user.userId);
 
-      await docRef.set(user);
+      await docRef.set(user.toFirestore(user));
     } on FirebaseException catch (e) {
       log(e.toString());
     }
@@ -25,13 +19,9 @@ class FirebaseFirestoreServices {
 
   updateNickname({required String nickName}) async {
     try {
-      final docRef = firestore
-          .collection("users")
-          .withConverter(
-            fromFirestore: UserModel.fromFirestore,
-            toFirestore: (UserModel user, options) => user.toFirestore(user),
-          )
-          .doc(FirebaseAuth.instance.currentUser!.uid);
+      String userId = FirebaseAuth.instance.currentUser!.uid;
+
+      final docRef = firestore.collection("users").doc(userId);
 
       await docRef.update({"nickName": nickName});
     } on FirebaseException catch (e) {
@@ -39,7 +29,17 @@ class FirebaseFirestoreServices {
     }
   }
 
-  // getFromFirestore() {
-  //   final docRef = firestore.collection("users").doc( )
-  // }
+  Future<UserModel?>? getCurrentUserData() async {
+    UserModel? user;
+    final userInfo = await firestore
+        .collection("users")
+        .doc(FirebaseAuth.instance.currentUser?.uid)
+        .get();
+
+    if (userInfo.data() == null) {
+      return user;
+    }
+    user = UserModel.fromFirestore(userInfo.data()!);
+    return user;
+  }
 }

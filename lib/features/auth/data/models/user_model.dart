@@ -1,5 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-
 class UserModel {
   final String first;
   final String last;
@@ -27,17 +25,15 @@ class UserModel {
   }
 
   factory UserModel.fromFirestore(
-    DocumentSnapshot<Map<String, dynamic>> snapshot,
-    SnapshotOptions? options,
+    Map<String, dynamic> data,
   ) {
-    final data = snapshot.data();
     return UserModel(
-      first: data?['first'],
-      last: data?['last'],
-      email: data?['email'],
-      password: data?['password'],
-      nickName: data?['nickName'],
-      userId: data?['userId'],
+      first: data['first'],
+      last: data['last'],
+      email: data['email'],
+      password: data['password'],
+      nickName: data['nickName'],
+      userId: data['userId'],
     );
   }
 }
