@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:mtriple/core/routes/routes.dart';
+import 'package:mtriple/core/services/firebase_firestore_service.dart';
 import 'package:mtriple/core/styles/styles.dart';
 import 'package:mtriple/features/auth/ui/components/custom_auth_button.dart';
 import 'package:mtriple/features/auth/ui/components/custom_auth_textfield.dart';
@@ -85,6 +87,12 @@ class _NickNameScreenState extends State<NickNameScreen> {
                     CustomAuthButton(
                       onTap: () {
                         if (formKey.currentState!.validate()) {
+                          FirebaseFirestoreServices firestoreServices =
+                              FirebaseFirestoreServices();
+
+                          firestoreServices.updateNickname(
+                              nickName: _controller.text);
+                          Navigator.pushNamed(context, Routes.home);
                         } else {}
                       },
                       text: "Continue",

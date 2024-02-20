@@ -1,9 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mtriple/core/routes/routes.dart';
+import 'package:mtriple/core/services/firebase_firestore_service.dart';
 import 'package:mtriple/features/auth/data/cubits/sign%20up/signup_cubit.dart';
+import 'package:mtriple/features/auth/data/models/user_model.dart';
 import 'package:mtriple/features/auth/ui/components/auth_screens_footer.dart';
 import 'package:mtriple/features/auth/ui/components/auth_screens_head.dart';
 import 'package:mtriple/features/auth/ui/components/custom_auth_button.dart';
@@ -164,6 +167,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     .showSnackBar(snackBar);
                               }
                               if (state is SignupSuccess) {
+                                FirebaseFirestoreServices firestoreServices =
+                                    FirebaseFirestoreServices();
+                                UserModel user = UserModel(
+                                    email: _emailController.text,
+                                    first: _firstNameController.text,
+                                    last: _lastNameController.text,
+                                    userId:
+                                        FirebaseAuth.instance.currentUser!.uid,
+                                    nickName: "",
+                                    password: _passwordController.text);
+                                firestoreServices.addToFirestore(user: user);
                                 Navigator.pushNamed(context, Routes.nickName);
                               }
                             },
