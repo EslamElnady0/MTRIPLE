@@ -63,10 +63,8 @@ class _LogInScreenState extends State<LogInScreen> {
                         controller: _emailController,
                         hintText: 'Email',
                         validator: (value) {
-                          if (!RegExp(
-                                  r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
-                              .hasMatch(value!)) {
-                            return "Please, enter a valid email form";
+                          if (value!.isEmpty) {
+                            return "this field is required";
                           } else {
                             return null;
                           }
@@ -83,10 +81,6 @@ class _LogInScreenState extends State<LogInScreen> {
                         validator: (value) {
                           if (value!.isEmpty) {
                             return "this field is required";
-                          } else if (value.length < 8) {
-                            return "password must be 8 characters or more";
-                          } else if (!value.contains(RegExp(r'[A-Z]'))) {
-                            return "password should have at least one upper case character";
                           } else {
                             return null;
                           }
