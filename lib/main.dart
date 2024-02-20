@@ -5,7 +5,6 @@ import 'package:mtriple/core/routes/routes.dart';
 import 'package:mtriple/core/themes/themes.dart';
 import 'package:mtriple/features/auth/data/cubits/sign%20in/signin_cubit.dart';
 import 'package:mtriple/features/auth/data/cubits/sign%20up/signup_cubit.dart';
-import 'package:mtriple/features/auth/ui/screens/signup_screen.dart';
 import 'package:mtriple/features/splash/ui/screens/splash_screen.dart';
 import 'package:mtriple/firebase_options.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -38,7 +37,7 @@ class MyApp extends StatelessWidget {
           ],
           child: MaterialApp(
             debugShowCheckedModeBanner: false,
-            home: const SignUpScreen(),
+            home: const SplashScreen(),
             theme: AppTheme.darkTheme,
             onGenerateRoute: Routes.onGenerateRoutes,
           ),
