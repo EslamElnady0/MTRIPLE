@@ -5,40 +5,41 @@ import 'package:mtriple/core/colors/colors.dart';
 
 class AppTheme {
   static ThemeData darkTheme = ThemeData(
-
-
-
-    colorScheme: ColorScheme.fromSeed(
-      primary: MainColors.white ,
-      seedColor: MainColors.white,),
-    fontFamily: GoogleFonts.cairo().fontFamily,
     scaffoldBackgroundColor: MainColors.black,
+    appBarTheme: const AppBarTheme(
+      backgroundColor: Colors.black,
+    ),
     useMaterial3: true,
-    textTheme:  TextTheme(
-        bodySmall: GoogleFonts.cairo(
-          color: MainColors.white,
+    textTheme: TextTheme(
+      bodySmall: GoogleFonts.cairo(
+        color: const Color(0xFFD1D1D1),
+        fontSize: 12.sp,
+        fontWeight: FontWeight.w400,
+        height: 0,
+        letterSpacing: -0.24,
+      ),
+      titleMedium: GoogleFonts.cairo(
+        color: const Color(0xFF0E0F0E),
+        fontSize: 20.sp,
+        fontWeight: FontWeight.w600,
+        height: 0,
+        letterSpacing: -0.40,
+      ),
+      bodyMedium: GoogleFonts.cairo(
+        color: const Color(0xFF393939),
+        fontSize: 12.sp,
+        fontWeight: FontWeight.w400,
+        height: 0,
+        letterSpacing: -0.24,
+      ),
+      titleLarge: GoogleFonts.cairo(
+          fontSize: 16.sp, color: Colors.white, fontWeight: FontWeight.bold),
+      displayMedium: TextStyle(
+          height: 2,
+          color: Colors.white,
+          fontFamily: 'Cairo',
           fontSize: 14.sp,
-
-          fontWeight: FontWeight.w400,
-          height: 0.h,
-          letterSpacing: -0.24,
-        ),
-        titleMedium:  GoogleFonts.cairo(
-          color: MainColors.white,
-          fontSize: 20.sp,
-
-          fontWeight: FontWeight.w600,
-          height: 0,
-          letterSpacing: -0.40,
-        ),
-
-        bodyMedium: GoogleFonts.cairo(
-
-          color: MainColors.white,
-          fontSize: 14.sp,
-          fontWeight: FontWeight.w400,
-          height: 0,
-          letterSpacing: -0.24,
-        )),
+          fontWeight: FontWeight.w400),
+    ),
   );
 }
