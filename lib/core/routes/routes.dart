@@ -6,13 +6,15 @@ import 'package:mtriple/features/auth/ui/screens/login_screen.dart';
 import 'package:mtriple/features/auth/ui/screens/nickname_screen.dart';
 import 'package:mtriple/features/auth/ui/screens/signup_screen.dart';
 import 'package:mtriple/features/home/ui/screens/home_screen.dart';
+import 'package:mtriple/features/issue/ui/screens/IssueScreen.dart';
 import 'package:mtriple/features/onBoarding/ui/screens/onboarding_screen.dart';
+import 'package:mtriple/features/relax-breathing/ui/screens/relax_breathing_screen.dart';
 import 'package:mtriple/features/splash/ui/screens/splash_screen.dart';
 import 'package:page_transition/page_transition.dart';
 import '../../features/Breathing_details/ui/screens/breathPower_screen.dart';
 import '../../features/Profile_screen/screens/profile_screen.dart';
 import '../../features/Setting_Screen/screens/setting_screen.dart';
-import '../../features/relax-breathing/ui/screens/relax-breathing_screen.dart';
+import '../../features/relax/screens/relax_tech_screen.dart';
 
 class Routes {
   static const String splash = 'splash';
@@ -27,6 +29,8 @@ class Routes {
   static const String breath = 'breathPower_screen';
   static const String setting = 'setting_screen';
   static const String account = 'profile_screen.dart';
+  static const String relax = 'relax';
+  static const String issue = 'issue';
 
   static Route<dynamic> onGenerateRoutes(RouteSettings settings) {
     switch (settings.name) {
@@ -58,8 +62,12 @@ class Routes {
         return MaterialPageRoute(builder: (_) => const BreathPowerScreen());
       case setting:
         return MaterialPageRoute(builder: (_) => const SettingScreen());
+      case relax:
+        return MaterialPageRoute(builder: (_) => const RelaxTechScreen());
+      case issue:
+        return MaterialPageRoute(builder: (_) => const IssueScreen());
       case account:
-        return MaterialPageRoute(builder: (_) => ProfileScreen());
+        return MaterialPageRoute(builder: (_) => const ProfileScreen());
 
       default:
         return MaterialPageRoute(builder: (_) => const SplashScreen());
