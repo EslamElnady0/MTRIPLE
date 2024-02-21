@@ -73,7 +73,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               effect: const ExpandingDotsEffect(
                 dotHeight: 8,
                 dotWidth: 8,
-                activeDotColor: Colorrs.green,
+                activeDotColor: MainColors.green,
                 dotColor: Colors.grey,
               ),
             ),
@@ -111,7 +111,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             ),
             CustomAuthButton(
               color: Colors.transparent,
-              border: Border.all(color: Colorrs.green, width: 1.5),
+              border: Border.all(color: MainColors.green, width: 1.5),
               raduis: 16.r,
               onTap: () async {
                 SharedPreferences perfs = await SharedPreferences.getInstance();
@@ -125,7 +125,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 }
               },
               text: currentIndex == 3 ? "Next" : "Skip",
-              style: Styles.style20whiteBold.copyWith(color: Colorrs.green),
+              style: Styles.style20whiteBold.copyWith(color: MainColors.green),
             ),
             SizedBox(
               height: 20.h,

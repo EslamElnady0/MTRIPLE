@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mtriple/core/styles/styles.dart';
@@ -14,6 +16,7 @@ class ForgotPasswordScreen extends StatefulWidget {
 
 class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   var formKey = GlobalKey<FormState>();
+  late Timer timer;
   late TextEditingController _controller;
   @override
   void initState() {
@@ -24,6 +27,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   @override
   void dispose() {
     _controller.dispose();
+    timer.cancel();
     super.dispose();
   }
 
@@ -58,7 +62,8 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                       ),
                       Text(
                         "Reset your password if you've forgotten it. We'll help you regain access to your account.",
-                        style: Styles.style16white.copyWith(color: Colors.grey),
+                        style: Styles.style16whiteSemiBold
+                            .copyWith(color: Colors.grey),
                         textAlign: TextAlign.center,
                       ),
                       SizedBox(
@@ -103,6 +108,32 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                               child: CustomAuthButton(
                                 onTap: () {
                                   if (formKey.currentState!.validate()) {
+                                    // FirebaseAuthServices firebaseAuthServices =
+                                    //     FirebaseAuthServices();
+                                    // firebaseAuthServices.signInWithEmailOnly(
+                                    //     email: _controller.text);
+                                    // SnackBar snackBar = SnackBar(
+                                    //     content: Text(
+                                    //         "sent login link to ${_controller.text}"));
+                                    // ScaffoldMessenger.of(context)
+                                    //     .showSnackBar(snackBar);
+                                    // timer = Timer.periodic(
+                                    //     const Duration(seconds: 3), (timer) {
+                                    //   if (firebaseAuthServices
+                                    //           .firebaseAuth.currentUser !=
+                                    //       null) {
+                                    //     FirebaseFirestoreServices
+                                    //         firestoreServices =
+                                    //         FirebaseFirestoreServices();
+                                    //     firestoreServices.getCurrentUserData();
+                                    //     Navigator.pushNamedAndRemoveUntil(
+                                    //         context,
+                                    //         Routes.home,
+                                    //         (route) => false);
+                                    //     log(firebaseAuthServices
+                                    //         .firebaseAuth.currentUser!.uid);
+                                    //   }
+                                    // });
                                   } else {}
                                 },
                               ))),

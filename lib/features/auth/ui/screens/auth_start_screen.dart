@@ -79,7 +79,7 @@ class AuthStartScreen extends StatelessWidget {
             ),
             Text(
               "You can continue across",
-              style: Styles.style16white,
+              style: Styles.style16whiteSemiBold,
             ),
             SizedBox(
               height: 26.h,

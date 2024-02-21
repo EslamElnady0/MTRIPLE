@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mtriple/features/home/ui/components/post_widget.dart';
+import 'package:mtriple/features/home/ui/screens/issues_tab.dart';
+import 'package:mtriple/features/home/ui/screens/posts_tab.dart';
+import 'package:mtriple/features/home/ui/screens/profile_screen.dart';
+import 'package:mtriple/features/home/ui/screens/relaxation_tab.dart';
 import 'package:mtriple/features/onBoarding/data/onboarding_model.dart';
 
 class Constants {
@@ -32,5 +37,63 @@ class Constants {
         height: 279.27.h,
         desc:
             "Access immediate, specialized psychological support from our team of experts. Submit your consultation, receive personalized advice, and navigate mental health challenges with guidance from qualified professionals."),
+  ];
+
+  static List<Widget> tabs = [
+    IssueTab(),
+    const RelaxationTab(),
+    PostsTab(),
+    const ProfileTab()
+  ];
+
+  static List<PostWidget> posts = [
+    PostWidget(
+      imagePath: "assets/images/profile1.png",
+      name: "Heisenberg",
+      post:
+          """"Today, I want to remind everyone that it's okay to prioritize your mental health. Take breaks when you need them, and don't hesitate to ask for support.” \n#SelfCare \n#MentalHealthMatters""",
+    ),
+    PostWidget(
+      imagePath: "assets/images/batman.png",
+      name: "anabatman",
+      post:
+          """"Let's start a conversation: What's one self-care practice that helps you when you're feeling overwhelmed? Share your tips and tricks with the community! \n#SelfCareSunday \n#MentalWellness""",
+    ),
+    PostWidget(
+      imagePath: "assets/images/profile1.png",
+      name: "Heisenberg",
+      post:
+          """"Today, I want to remind everyone that it's okay to prioritize your mental health. Take breaks when you need them, and don't hesitate to ask for support.” \n#SelfCare \n#MentalHealthMatters""",
+    ),
+    PostWidget(
+      imagePath: "assets/images/batman.png",
+      name: "anabatman",
+      post:
+          """"Let's start a conversation: What's one self-care practice that helps you when you're feeling overwhelmed? Share your tips and tricks with the community! \n#SelfCareSunday \n#MentalWellness""",
+    ),
+    PostWidget(
+      imagePath: "assets/images/profile1.png",
+      name: "Heisenberg",
+      post:
+          """"Today, I want to remind everyone that it's okay to prioritize your mental health. Take breaks when you need them, and don't hesitate to ask for support.” \n#SelfCare \n#MentalHealthMatters""",
+    ),
+    PostWidget(
+      imagePath: "assets/images/batman.png",
+      name: "anabatman",
+      post:
+          """"Let's start a conversation: What's one self-care practice that helps you when you're feeling overwhelmed? Share your tips and tricks with the community! \n#SelfCareSunday \n#MentalWellness""",
+    ),
+    PostWidget(
+      imagePath: "assets/images/profile1.png",
+      name: "Heisenberg",
+      post:
+          """"Today, I want to remind everyone that it's okay to prioritize your mental health. Take breaks when you need them, and don't hesitate to ask for support.” \n#SelfCare \n#MentalHealthMatters""",
+    ),
+    PostWidget(
+      imagePath: "assets/images/batman.png",
+      name: "anabatman",
+      post:
+          """"Let's start a conversation: What's one self-care practice that helps you when you're feeling overwhelmed? Share your tips and tricks with the community! \n#SelfCareSunday \n#MentalWellness""",
+    ),
   ];
 }

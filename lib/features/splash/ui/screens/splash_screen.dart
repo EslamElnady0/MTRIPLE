@@ -24,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
               ? const OnBoardingScreen()
               : user == null
                   ? const AuthStartScreen()
-                  : const HomeScreen(),
+                  : HomeScreen(),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         const begin = Offset(1.0, 0.0);
         const end = Offset.zero;

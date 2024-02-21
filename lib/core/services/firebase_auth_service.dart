@@ -37,7 +37,7 @@ class FirebaseAuthServices {
 
   signInAno() async {
     try {
-      final userCredential = await FirebaseAuth.instance.signInAnonymously();
+      await FirebaseAuth.instance.signInAnonymously();
 
       log("Signed in with temporary account.");
     } on FirebaseAuthException catch (e) {
@@ -48,6 +48,22 @@ class FirebaseAuthServices {
         default:
           log("Unknown error.");
       }
+    }
+  }
+
+  signInWithEmailOnly({required String email}) async {
+    try {
+      var actionCodeSettings = ActionCodeSettings(
+        url: 'https://comexamplemtriple.page.link/6SuK?email=$email',
+        handleCodeInApp: true,
+        iOSBundleId: 'com.example.mtriple',
+        androidPackageName: 'com.example.mtriple',
+      );
+
+      firebaseAuth.sendSignInLinkToEmail(
+          email: email, actionCodeSettings: actionCodeSettings);
+    } catch (e) {
+      log(e.toString());
     }
   }
 
