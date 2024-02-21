@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mtriple/features/Setting_Screen/screens/setting_screen.dart';
 import 'package:mtriple/features/home/ui/components/post_widget.dart';
 import 'package:mtriple/features/home/ui/screens/issues_tab.dart';
 import 'package:mtriple/features/home/ui/screens/posts_tab.dart';
-import 'package:mtriple/features/home/ui/screens/profile_screen.dart';
-import 'package:mtriple/features/home/ui/screens/relaxation_tab.dart';
+import 'package:mtriple/features/issue/ui/components/Article_tab.dart';
+import 'package:mtriple/features/issue/ui/components/Consultation_tab.dart';
+import 'package:mtriple/features/issue/ui/components/Doctor_Widget.dart';
+import 'package:mtriple/features/issue/ui/components/Video_tab.dart';
 import 'package:mtriple/features/onBoarding/data/onboarding_model.dart';
+import 'package:mtriple/features/relax-breathing/ui/screens/relax_breathing_screen.dart';
 
 class Constants {
   static OutlineInputBorder border = OutlineInputBorder(
@@ -40,10 +44,28 @@ class Constants {
   ];
 
   static List<Widget> tabs = [
-    IssueTab(),
-    const RelaxationTab(),
-    PostsTab(),
-    const ProfileTab()
+    const IssueTab(),
+    const RelaxBreathingScreen(),
+    const PostsTab(),
+    const SettingScreen()
+  ];
+  static List<Widget> doctors = [
+    const DoctorWidget(
+      imagePath: "assets/images/dr ahmed.png",
+      name: "DR. Ahmed",
+    ),
+    const DoctorWidget(
+      imagePath: "assets/images/dr ali.png",
+      name: "DR. Ali",
+    ),
+    const DoctorWidget(
+      imagePath: "assets/images/dr mohamed.png",
+      name: "DR. Mohamed",
+    ),
+    const DoctorWidget(
+      imagePath: "assets/images/dr noah.png",
+      name: "DR. Noah",
+    ),
   ];
 
   static List<PostWidget> posts = [
@@ -95,5 +117,17 @@ class Constants {
       post:
           """"Let's start a conversation: What's one self-care practice that helps you when you're feeling overwhelmed? Share your tips and tricks with the community! \n#SelfCareSunday \n#MentalWellness""",
     ),
+  ];
+
+  static List<Widget> tabControllerTabs = [
+    Text("Articles"),
+    Text("Video"),
+    Text("Consultation"),
+  ];
+
+  static List<Widget> bodyTabs = [
+    const ArticleTab(),
+    const VideoTab(),
+    const ConsultationTab()
   ];
 }

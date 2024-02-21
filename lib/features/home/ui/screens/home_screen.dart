@@ -1,6 +1,7 @@
 import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:mtriple/core/constants.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -32,8 +33,14 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.transparent,
           centerTitle: true,
-          title: const Image(image: AssetImage("assets/images/logo.png")),
+          title: SvgPicture.asset(
+            "assets/images/logo.svg",
+            width: 155.84.w,
+            height: 20.27.h,
+          ),
         ),
         body: Constants.tabs[selectedIndex],
         extendBody: true,

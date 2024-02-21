@@ -22,7 +22,7 @@ class AppTheme {
         color: const Color(0xFF0E0F0E),
         fontSize: 20.sp,
         fontWeight: FontWeight.w600,
-        height: 0,
+        height: 1,
         letterSpacing: -0.40,
       ),
       bodyMedium: GoogleFonts.cairo(
