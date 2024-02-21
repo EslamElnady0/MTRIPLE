@@ -36,16 +36,18 @@ dependencies:
   firebase_auth: ^4.17.4
   firebase_core: ^2.25.4
   firebase_dynamic_links: ^5.4.14
-  flutter:
-    sdk: flutter
-  flutter_bloc: ^8.1.4
+  cupertino_icons: ^1.0.2
   flutter_screenutil: ^5.9.0
   flutter_svg: ^2.0.9
-  font_awesome_flutter: ^10.7.0
   google_fonts: ^6.1.0
+  animated_toggle_switch: ^0.8.1
   page_transition: ^2.1.0
+  flutter_bloc: ^8.1.4
+  font_awesome_flutter: ^10.7.0
   shared_preferences: ^2.2.2
   smooth_page_indicator: ^1.1.0
+  flutter:
+    sdk: flutter
 
 dev_dependencies:
   flutter_lints: ^2.0.0

@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mtriple/core/colors/colors.dart';
 
+
 class Styles {
   static TextStyle style20whiteBold = GoogleFonts.cairo(
       color: MainColors.secondTextColor,
@@ -54,3 +55,4 @@ class Styles {
   static TextStyle style36greenBold = GoogleFonts.cairo(
       color: MainColors.green, fontSize: 36.sp, fontWeight: FontWeight.w600);
 }
+

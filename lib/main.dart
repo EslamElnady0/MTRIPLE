@@ -9,6 +9,12 @@ import 'package:mtriple/features/splash/ui/screens/splash_screen.dart';
 import 'package:mtriple/firebase_options.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'core/Routes/routes.dart';
+import 'core/themes/themes.dart';
+import 'features/Breathing_details/ui/screens/breathPower_screen.dart';
+import 'features/Setting_Screen/screens/setting_screen.dart';
+import 'features/relax-breathing/ui/screens/relax-breathing_screen.dart';
+
 
 int? isViewed;
 Future<void> main() async {
