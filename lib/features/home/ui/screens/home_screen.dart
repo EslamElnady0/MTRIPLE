@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:mtriple/core/routes/routes.dart';
 import 'package:mtriple/core/services/firebase_firestore_service.dart';
 import 'package:mtriple/features/auth/data/models/user_model.dart';
 
@@ -41,6 +43,13 @@ class HomeScreen extends StatelessWidget {
                     );
                   }
                 }),
+            ElevatedButton(
+                onPressed: () {
+                  FirebaseAuth.instance.signOut();
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, Routes.authStart, (route) => false);
+                },
+                child: const Text("sign out"))
           ],
         ),
       ),

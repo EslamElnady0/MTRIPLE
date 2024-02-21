@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mtriple/core/routes/routes.dart';
+import 'package:mtriple/core/services/firebase_auth_service.dart';
 import 'package:mtriple/core/services/firebase_firestore_service.dart';
 import 'package:mtriple/features/auth/data/cubits/sign%20up/signup_cubit.dart';
 import 'package:mtriple/features/auth/data/models/user_model.dart';
@@ -208,7 +209,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         height: 20.h,
                       ),
                       const Spacer(),
-                      const AuthScreensFooter(),
+                      AuthScreensFooter(
+                        onSkipTapped: () {
+                          FirebaseAuthServices firebaseAuthServices =
+                              FirebaseAuthServices();
+                          firebaseAuthServices.signInAno();
+                          Navigator.pushNamed(context, Routes.home);
+                        },
+                      ),
                       SizedBox(
                         height: 20.h,
                       )

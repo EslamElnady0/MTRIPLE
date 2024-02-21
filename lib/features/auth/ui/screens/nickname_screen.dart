@@ -111,7 +111,11 @@ class _NickNameScreenState extends State<NickNameScreen> {
                         alignment: Alignment.centerRight,
                         child: Padding(
                           padding: EdgeInsets.only(right: 6.w),
-                          child: const CustomTextButtton(text: "Skip"),
+                          child: CustomTextButtton(
+                            text: "Skip",
+                            onTap: () =>
+                                Navigator.pushNamed(context, Routes.home),
+                          ),
                         ),
                       ),
                       SizedBox(

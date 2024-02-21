@@ -3,10 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mtriple/features/auth/ui/components/custom_text_button.dart';
 
 class AuthScreensFooter extends StatelessWidget {
-  final void Function()? onTap;
+  final void Function()? onSkipTapped;
   const AuthScreensFooter({
     super.key,
-    this.onTap,
+    this.onSkipTapped,
   });
 
   @override
@@ -22,7 +22,7 @@ class AuthScreensFooter extends StatelessWidget {
           ),
           CustomTextButtton(
             text: "Skip",
-            onTap: onTap,
+            onTap: onSkipTapped,
           )
         ],
       ),

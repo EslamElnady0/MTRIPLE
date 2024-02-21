@@ -1,7 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:mtriple/features/auth/ui/screens/auth_start_screen.dart';
+import 'package:mtriple/features/home/ui/screens/home_screen.dart';
 import 'package:mtriple/features/onBoarding/ui/screens/onboarding_screen.dart';
 import 'package:mtriple/main.dart';
 
@@ -13,12 +15,16 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  User? user;
+
   Route _createRoute() {
     return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) =>
           isViewed == 0 || isViewed == null
               ? const OnBoardingScreen()
-              : const AuthStartScreen(),
+              : user == null
+                  ? const AuthStartScreen()
+                  : const HomeScreen(),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         const begin = Offset(1.0, 0.0);
         const end = Offset.zero;
@@ -37,6 +43,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   void initState() {
+    user = FirebaseAuth.instance.currentUser;
     Future.delayed(const Duration(seconds: 3))
         .then((value) => Navigator.pushReplacement(
               context,

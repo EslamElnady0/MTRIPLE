@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mtriple/core/routes/routes.dart';
+import 'package:mtriple/core/services/firebase_auth_service.dart';
 import 'package:mtriple/core/styles/styles.dart';
 import 'package:mtriple/features/auth/ui/components/auth_screens_head.dart';
 import 'package:mtriple/features/auth/ui/components/custom_auth_button.dart';
@@ -102,11 +103,17 @@ class AuthStartScreen extends StatelessWidget {
               ),
             ),
             const Spacer(),
-            const Row(
+            Row(
               children: [
-                Spacer(),
+                const Spacer(),
                 CustomTextButtton(
                   text: "Skip",
+                  onTap: () {
+                    FirebaseAuthServices firebaseAuthServices =
+                        FirebaseAuthServices();
+                    firebaseAuthServices.signInAno();
+                    Navigator.pushNamed(context, Routes.home);
+                  },
                 )
               ],
             ),
