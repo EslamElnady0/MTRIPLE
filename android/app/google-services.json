@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "504729282559",
+    "project_id": "mtriple-7dbe4",
+    "storage_bucket": "mtriple-7dbe4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:504729282559:android:2165560d4f59ec608769ca",
+        "android_client_info": {
+          "package_name": "com.example.mtriple"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlJswcS5FCBH7vlLk7gEYAlmYiaoZZPXg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
