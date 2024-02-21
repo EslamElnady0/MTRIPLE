@@ -28,7 +28,7 @@ class CustomAuthTextField extends StatelessWidget {
       controller: controller,
       obscureText: isPassword ?? false,
       cursorColor: Colors.white,
-      style: Styles.style16white,
+      style: Styles.style16whiteSemiBold,
       decoration: InputDecoration(
           errorStyle: TextStyle(fontSize: 12.sp),
           suffixIcon: Icon(

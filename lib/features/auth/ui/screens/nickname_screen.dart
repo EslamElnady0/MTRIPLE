@@ -59,7 +59,8 @@ class _NickNameScreenState extends State<NickNameScreen> {
                     ),
                     Text(
                       "Sign up with a unique nickname that represents your online identity and personality.",
-                      style: Styles.style16white.copyWith(color: Colors.grey),
+                      style: Styles.style16whiteSemiBold
+                          .copyWith(color: Colors.grey),
                       textAlign: TextAlign.center,
                     ),
                     SizedBox(

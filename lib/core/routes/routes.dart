@@ -18,6 +18,11 @@ class Routes {
   static const String forgotPassword = 'forgot-password';
   static const String nickName = 'nickname';
   static const String home = 'home';
+  static const String relaxBreathingScreen = 'relax-breathing_screen';
+  static const String breath = 'breathPower_screen';
+
+  static const String setting = 'setting_screen';
+  static const String account = 'profile_screen.dart';
 
   static Route<dynamic> onGenerateRoutes(RouteSettings settings) {
     switch (settings.name) {
@@ -41,6 +46,7 @@ class Routes {
       case home:
         return PageTransition(
             child: const HomeScreen(), type: PageTransitionType.rightToLeft);
+
       default:
         return MaterialPageRoute(builder: (_) => const SplashScreen());
     }
