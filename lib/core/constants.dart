@@ -3,9 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mtriple/features/home/ui/components/post_widget.dart';
 import 'package:mtriple/features/home/ui/screens/issues_tab.dart';
 import 'package:mtriple/features/home/ui/screens/posts_tab.dart';
-import 'package:mtriple/features/home/ui/screens/profile_screen.dart';
-import 'package:mtriple/features/home/ui/screens/relaxation_tab.dart';
 import 'package:mtriple/features/onBoarding/data/onboarding_model.dart';
+import '../features/relax-breathing/ui/screens/relax-breathing_screen.dart';
+import '../features/Profile_screen/screens/profile_screen.dart';
 
 class Constants {
   static OutlineInputBorder border = OutlineInputBorder(
@@ -40,10 +40,10 @@ class Constants {
   ];
 
   static List<Widget> tabs = [
-    IssueTab(),
-    const RelaxationTab(),
-    PostsTab(),
-    const ProfileTab()
+    const IssueTab(),
+    const RelaxBreathingScreen(),
+    const PostsTab(),
+    const ProfileScreen()
   ];
 
   static List<PostWidget> posts = [

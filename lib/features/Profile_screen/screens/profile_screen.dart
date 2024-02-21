@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mtriple/features/Breathing_details/ui/components/app_bar_widget.dart';
@@ -9,15 +8,22 @@ import '../../relax-breathing/ui/components/custom_text_button.dart';
 import '../components/my_posts_widget.dart';
 import '../components/text_edit_widget.dart';
 
-class ProfileScreen extends StatelessWidget {
-   ProfileScreen({Key? key}) : super(key: key);
+class ProfileScreen extends StatefulWidget {
+  const ProfileScreen({Key? key}) : super(key: key);
 
-var firstController = TextEditingController();
-var lastController = TextEditingController();
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  var firstController = TextEditingController();
+
+  var lastController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    firstController.text  = ' Adel';
-    lastController.text  = ' Gabr';
+    firstController.text = ' Adel';
+    lastController.text = ' Gabr';
     return SafeArea(
       child: Scaffold(
         appBar: appBarDefaultTheme(context: context, title: 'ِAccount'),
@@ -37,7 +43,6 @@ var lastController = TextEditingController();
                   style: Styles.style16whiteBold,
                   textAlign: TextAlign.start,
                 ),
-
                 Text(
                   'You can manage and modify your account on this page',
                   style: Styles.subTitle12,
@@ -68,56 +73,61 @@ var lastController = TextEditingController();
                 SizedBox(
                   height: 10.h,
                 ),
-
-                Center(child: Text('Adel Gabr',style: Styles.style16whiteBold,)),
+                Center(
+                    child: Text(
+                  'Adel Gabr',
+                  style: Styles.style16whiteBold,
+                )),
                 SizedBox(
                   height: 10.h,
                 ),
-
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     defaultTextFormFeild(context,
-                    hint: firstController.text,
-                    keyboardType: TextInputType.text,
-                    controller:  firstController,
-                      validate: (value){},
-
-                      suffix: const Icon(Icons.perm_identity_sharp,color: MainColors.white,)
-
-
-                    ),
+                        hint: firstController.text,
+                        keyboardType: TextInputType.text,
+                        controller: firstController,
+                        suffix: const Icon(
+                          Icons.perm_identity_sharp,
+                          color: MainColors.white,
+                        )),
                     defaultTextFormFeild(context,
                         hint: lastController.text,
                         keyboardType: TextInputType.text,
-                        controller:  lastController,
-                        validate: (value){},
-
-                        suffix: const Icon(Icons.perm_identity_sharp,color: MainColors.white,)
-
-
-                    ),
+                        controller: lastController,
+                        suffix: const Icon(
+                          Icons.perm_identity_sharp,
+                          color: MainColors.white,
+                        )),
                   ],
                 ),
-
                 SizedBox(
                   height: 15.h,
                 ),
-                CustomButton(text: 'SAVE',raduis: 16.r,color: MainColors.greenLoad,),
+                CustomButton(
+                  text: 'SAVE',
+                  raduis: 16.r,
+                  color: MainColors.greenLoad,
+                ),
                 SizedBox(
                   height: 30.h,
                 ),
-                Text('My posts',style: Styles.style16whiteBold,),
+                Text(
+                  'My posts',
+                  style: Styles.style16whiteBold,
+                ),
                 SizedBox(
                   height: 10.h,
                 ),
                 ListView.separated(
-                  shrinkWrap: true,
+                    shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index) => myPosts(),
-                    separatorBuilder: (context, index) => SizedBox(height: 20.h,),
+                    separatorBuilder: (context, index) => SizedBox(
+                          height: 20.h,
+                        ),
                     itemCount: 4),
-
               ],
             ),
           ),
