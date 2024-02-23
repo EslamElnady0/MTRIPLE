@@ -20,49 +20,49 @@ class IssueWidget extends StatelessWidget {
       onTap: () {
         Navigator.pushNamed(context, Routes.issue);
       },
-      child: Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12.r),
+      child: Container(
+        width: 338.w,
+        height: 136.h,
+        clipBehavior: Clip.antiAlias,
+        margin: EdgeInsets.only(bottom: 12.h),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(16.r),
+          color: const Color(0xffD8FFD7),
         ),
-        color: const Color(0xffD8FFD7),
-        child: SizedBox(
-          width: 339.w,
-          height: 138.h,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Padding(
-                padding: EdgeInsets.only(left: 10.w, top: 10.w),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      title,
-                      style: Theme.of(context).textTheme.titleMedium,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Padding(
+              padding: EdgeInsets.only(left: 10.w, top: 10.w),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
+                  SizedBox(
+                    height: 8.h,
+                  ),
+                  SizedBox(
+                    width: 169.w,
+                    child: Text(
+                      description,
+                      style: Theme.of(context).textTheme.bodyMedium,
+                      maxLines: 3,
+                      overflow: TextOverflow.ellipsis,
                     ),
-                    SizedBox(
-                      height: 8.h,
-                    ),
-                    SizedBox(
-                      width: 169.w,
-                      height: 65.h,
-                      child: Text(
-                        description,
-                        style: Theme.of(context).textTheme.bodyMedium,
-                        maxLines: 3,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-              Image.asset(
-                imagePath,
-                width: 140.w,
-                fit: BoxFit.cover,
-              )
-            ],
-          ),
+            ),
+            Image.asset(
+              imagePath,
+              width: 140.w,
+              height: 140.h,
+              fit: BoxFit.cover,
+            )
+          ],
         ),
       ),
     );

@@ -52,7 +52,7 @@ class IssueTab extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             SizedBox(
-              height: 8.h,
+              height: 24.h,
             ),
             const IssueWidget(
                 title: "Schizophrenia",
