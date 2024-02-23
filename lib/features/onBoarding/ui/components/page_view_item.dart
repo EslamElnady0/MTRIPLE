@@ -24,15 +24,12 @@ class OnBoardingItem extends StatelessWidget {
         Positioned(
           right: 0,
           left: 0,
-          top: 340.h,
+          top: 330.h,
           child: Column(
             children: [
               Text(
                 onboardingModel.text,
                 style: Styles.style36greenBold,
-              ),
-              SizedBox(
-                height: 30.h,
               ),
               Text(onboardingModel.desc,
                   textAlign: TextAlign.center,

@@ -46,10 +46,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             ),
             Image.asset("assets/images/small mtriple.png"),
             SizedBox(
-              height: 45.h,
-            ),
-            SizedBox(
-              height: 465.h,
+              height: 530.h,
               child: PageView.builder(
                   onPageChanged: (value) {
                     setState(() {
@@ -65,7 +62,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   }),
             ),
             SizedBox(
-              height: 25.h,
+              height: 20.h,
             ),
             SmoothPageIndicator(
               controller: _pageController,
@@ -77,9 +74,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 dotColor: Colors.grey,
               ),
             ),
-            const Spacer(),
             SizedBox(
-              height: 47.h,
+              height: 30.h,
             ),
             CustomAuthButton(
               raduis: 16.r,
