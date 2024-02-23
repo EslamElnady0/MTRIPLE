@@ -125,7 +125,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 child: ListView.separated(
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
-                    itemBuilder: (context, index) => myPosts(),
+                    itemBuilder: (context, index) => myPosts(context: context),
                     separatorBuilder: (context, index) => SizedBox(
                           height: 20.h,
                         ),

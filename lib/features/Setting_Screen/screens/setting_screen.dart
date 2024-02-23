@@ -1,14 +1,15 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mtriple/core/colors/colors.dart';
 import 'package:mtriple/core/routes/routes.dart';
+import 'package:mtriple/features/Setting_Screen/component/custom_edit_button.dart';
 import 'package:mtriple/features/Setting_Screen/component/profile_widget.dart';
 
 import '../../../../core/styles/styles.dart';
 import '../component/custom_dark_mode_widget.dart';
-import '../component/outLined_button.dart';
 
 class SettingScreen extends StatelessWidget {
   const SettingScreen({Key? key}) : super(key: key);
@@ -17,7 +18,7 @@ class SettingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 17.w),
+        padding: EdgeInsets.symmetric(horizontal: 21.w),
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Column(
@@ -47,30 +48,20 @@ class SettingScreen extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                height: 18.h,
+                height: 12.h,
               ),
               Text(
                 'You can manage your account on this page',
                 style: Styles.subTitle12,
               ),
               SizedBox(
-                height: 40.h,
+                height: 25.h,
               ),
               profile(
-                style: Styles.style20whiteBold,
-                width: 48.w,
-                height: 48.h,
-                widget: customOutLinedButton(
-                  radius: 3.36.r,
-                  color: MainColors.white,
-                  text: 'Edit',
-                  onTap: () {
-                    Navigator.pushNamed(context, Routes.account);
-                  },
-                  isIcon: true,
-                  style: Styles.style12white,
-                ),
-              ),
+                  style: Styles.style20whiteBold,
+                  width: 48.w,
+                  height: 48.h,
+                  widget: const CustomEditButton()),
               SizedBox(
                 height: 30.h,
               ),
@@ -131,8 +122,9 @@ class SettingScreen extends StatelessWidget {
                         text: 'Log out',
                         widget: InkWell(
                             onTap: () {
-                              // Navigator.pushNamedAndRemoveUntil(
-                              //     context, Routes.authStart, (route) => false);
+                              FirebaseAuth.instance.signOut();
+                              Navigator.pushNamedAndRemoveUntil(
+                                  context, Routes.authStart, (route) => false);
                             },
                             child: const Icon(
                               Icons.logout,

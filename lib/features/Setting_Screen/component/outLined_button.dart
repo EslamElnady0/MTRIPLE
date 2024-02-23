@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -12,9 +11,9 @@ Widget customOutLinedButton({
 }) =>
     OutlinedButton(
         style: OutlinedButton.styleFrom(
-          padding: const EdgeInsets.all(10),
+          padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 2.h),
           shape: RoundedRectangleBorder(
-              side: BorderSide(width: 1.w, color: color),
+              side: BorderSide(width: 1, color: color),
               borderRadius: BorderRadius.circular(radius)),
           side: BorderSide(color: color),
         ),
@@ -26,15 +25,10 @@ Widget customOutLinedButton({
               style: style,
             ),
             isIcon
-                ? SizedBox(
-                    width: 5.w,
-                  )
-                : const SizedBox(),
-            isIcon
                 ? Icon(
                     Icons.arrow_forward_ios_outlined,
                     color: Colors.white,
-                    size: 16.r,
+                    size: 12.r,
                   )
                 : Container(),
           ],

@@ -9,4 +9,5 @@ class MainColors {
   static const Color addressTextColor = Color(0xffA4A4A4);
   static const Color containerColor = Color(0xff2C2C2C);
   static const Color white = Colors.white;
+  static const Color popUpMenuColor = Color(0xff3A3A3A);
 }

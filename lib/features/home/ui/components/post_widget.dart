@@ -1,21 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:mtriple/features/Profile_screen/components/custom_pop_up_menu.dart';
+import 'package:mtriple/features/home/ui/components/custom_like_button.dart';
 
 // ignore: must_be_immutable
 class PostWidget extends StatelessWidget {
-  String imagePath;
-  String post;
-  String name;
+  final String imagePath;
+  final String post;
+  final String name;
+  bool isLiked = false;
 
   PostWidget({
     super.key,
     required this.imagePath,
     required this.name,
     required this.post,
+    this.isLiked = false,
   });
 
   @override
   Widget build(BuildContext context) {
+    var actionKey = GlobalKey();
     return Column(
       children: [
         Card(
@@ -39,9 +45,22 @@ class PostWidget extends StatelessWidget {
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     const Spacer(),
-                    const Icon(
-                      Icons.more_vert,
-                      color: Colors.white,
+                    GestureDetector(
+                      onTap: () {
+                        showCustomPopUpMenu(
+                            context: context,
+                            actionKey: actionKey,
+                            text1: "Interested",
+                            text2: "Report",
+                            icon1: FontAwesomeIcons.userCheck,
+                            icon2: Icons.report_off,
+                            size1: 20.r);
+                      },
+                      child: Icon(
+                        Icons.more_vert,
+                        key: actionKey,
+                        color: Colors.white,
+                      ),
                     ),
                   ],
                 ),
@@ -68,13 +87,8 @@ class PostWidget extends StatelessWidget {
         ),
         Row(
           children: [
-            SizedBox(
-              width: 71.w,
-              height: 60.h,
-              child: const Card(
-                color: Color(0xff2C2C2C),
-                child: Image(image: AssetImage("assets/images/heart.png")),
-              ),
+            LikeButton(
+              isLiked: isLiked,
             ),
             SizedBox(
               width: 16.w,
@@ -93,8 +107,10 @@ class PostWidget extends StatelessWidget {
                           borderRadius: BorderRadius.circular(16.r)),
                       focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16.r)),
-                      suffixIcon: const ImageIcon(
-                          AssetImage("assets/images/comment_icon.png")),
+                      suffixIcon: ImageIcon(
+                        const AssetImage("assets/images/comment_icon.png"),
+                        color: Colors.white.withOpacity(0.5),
+                      ),
                       filled: true,
                       hintText: "Add a comment",
                       hintStyle: TextStyle(

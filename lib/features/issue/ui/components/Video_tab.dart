@@ -7,15 +7,17 @@ class VideoTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.all(16.r),
-      child: const Column(
+    return SingleChildScrollView(
+      child: Column(
         children: [
-          VideoWidget(
+          SizedBox(
+            height: 16.h,
+          ),
+          const VideoWidget(
               title:
                   "Hearing voices, paranoia and schizophrenia | Miles's Mental Health Story | Mind",
               imagePath: "assets/images/first vid.png"),
-          VideoWidget(
+          const VideoWidget(
               title: "Schizophrenia | Talking about mental health - Episode 18",
               imagePath: "assets/images/second vid.png")
         ],

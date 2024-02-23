@@ -18,7 +18,8 @@ class _IssueScreenState extends State<IssueScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 17.5.w),
         child: Column(
           children: [
             SizedBox(
@@ -27,19 +28,17 @@ class _IssueScreenState extends State<IssueScreen> {
             Stack(
               alignment: Alignment.center,
               children: [
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 17.5.w),
-                  child: SizedBox(
-                      width: double.infinity,
-                      height: 293.h,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(16.r),
-                        child: Image.asset(
-                          "assets/images/Schizophrenia.png",
-                          fit: BoxFit.cover,
-                        ),
-                      )),
-                ),
+                SizedBox(
+                    width: double.infinity,
+                    height: 293.h,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(16.r),
+                      child: Image.asset(
+                        "assets/images/Schizophrenia-HD.png",
+                        height: 293.h,
+                        fit: BoxFit.cover,
+                      ),
+                    )),
                 Positioned(
                   top: 10.h,
                   left: 30.w,
@@ -63,33 +62,32 @@ class _IssueScreenState extends State<IssueScreen> {
             SizedBox(
               height: 20.h,
             ),
-            DefaultTabController(
-              length: 3,
-              child: Column(
-                children: [
-                  TabBar(
-                    tabs: Constants.tabControllerTabs,
-                    indicatorColor: const Color(0xff32E22F),
-                    labelPadding: EdgeInsets.all(8.r),
-                    indicatorWeight: 2,
-                    indicatorSize: TabBarIndicatorSize.tab,
-                    labelStyle: Styles.style16whiteBold
-                        .copyWith(color: MainColors.greenLoad),
-                    labelColor: const Color(0xff32E22F),
-                    unselectedLabelColor: Colors.white.withOpacity(0.5),
-                    dividerColor: Colors.transparent,
-                    onTap: (index) {
-                      selectedIndex = index;
-                      setState(() {});
-                    },
-                    isScrollable: false,
-                  ),
-                  Column(
-                    children: [
-                      Constants.bodyTabs[selectedIndex],
-                    ],
-                  )
-                ],
+            Expanded(
+              child: DefaultTabController(
+                length: Constants.bodyTabs.length,
+                child: Column(
+                  children: [
+                    TabBar(
+                      tabs: Constants.tabControllerTabs,
+                      indicatorColor: const Color(0xff32E22F),
+                      labelPadding: EdgeInsets.all(8.r),
+                      indicatorPadding: EdgeInsets.symmetric(horizontal: 5.w),
+                      indicatorWeight: 2,
+                      indicatorSize: TabBarIndicatorSize.tab,
+                      labelStyle: Styles.style16whiteBold
+                          .copyWith(color: MainColors.greenLoad),
+                      labelColor: const Color(0xff32E22F),
+                      unselectedLabelColor: Colors.white.withOpacity(0.5),
+                      dividerColor: Colors.transparent,
+                      onTap: (index) {
+                        selectedIndex = index;
+                        setState(() {});
+                      },
+                      isScrollable: false,
+                    ),
+                    Expanded(child: TabBarView(children: Constants.bodyTabs))
+                  ],
+                ),
               ),
             )
           ],

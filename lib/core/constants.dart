@@ -120,9 +120,9 @@ class Constants {
   ];
 
   static List<Widget> tabControllerTabs = [
-    Text("Articles"),
-    Text("Video"),
-    Text("Consultation"),
+    const Text("Articles"),
+    const Text("Video"),
+    const Text("Consultation"),
   ];
 
   static List<Widget> bodyTabs = [
